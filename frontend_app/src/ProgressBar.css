@@ -1,0 +1,84 @@
+/* Progress Bar Component Styles with Theme Support */
+
+.progress-container {
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.progress-text {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.progress-percentage {
+  color: var(--progress-primary);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: var(--progress-background);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--progress-primary), var(--progress-success));
+  border-radius: 6px;
+  position: relative;
+  transition: width 0.3s ease;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .progress-container {
+    margin-bottom: 20px;
+  }
+  
+  .progress-label {
+    font-size: 13px;
+  }
+  
+  .progress-bar {
+    height: 10px;
+  }
+}

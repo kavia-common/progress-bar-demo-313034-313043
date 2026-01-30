@@ -1,13 +1,19 @@
 /* CSS Variables for Theme Management */
 :root {
-  /* Light theme colors */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #282c34;
-  --text-secondary: #61dafb;
-  --border-color: #e9ecef;
-  --button-bg: #007bff;
+  /* Light theme colors - following style guide */
+  --bg-primary: #f9fafb;
+  --bg-secondary: #ffffff;
+  --text-primary: #111827;
+  --text-secondary: #64748b;
+  --border-color: #e5e7eb;
+  --button-bg: #3b82f6;
   --button-text: #ffffff;
+  --button-hover: #2563eb;
+  --progress-primary: #3b82f6;
+  --progress-success: #06b6d4;
+  --progress-background: #e5e7eb;
+  --card-bg: #ffffff;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 [data-theme="dark"] {
@@ -15,10 +21,16 @@
   --bg-primary: #1a1a1a;
   --bg-secondary: #282c34;
   --text-primary: #ffffff;
-  --text-secondary: #61dafb;
+  --text-secondary: #9ca3af;
   --border-color: #404040;
-  --button-bg: #0056b3;
+  --button-bg: #3b82f6;
   --button-text: #ffffff;
+  --button-hover: #2563eb;
+  --progress-primary: #3b82f6;
+  --progress-success: #06b6d4;
+  --progress-background: #374151;
+  --card-bg: #1f2937;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
 }
 
 .App {
@@ -41,7 +53,7 @@
 }
 
 .App-header {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -51,6 +63,72 @@
   color: var(--text-primary);
   transition: background-color 0.3s ease;
   position: relative;
+  padding: 20px;
+}
+
+.progress-card {
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: var(--card-shadow);
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+.progress-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 10px -2px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] .progress-card:hover {
+  box-shadow: 0 8px 25px -5px rgba(0, 0, 0, 0.4), 0 4px 10px -2px rgba(0, 0, 0, 0.3);
+}
+
+.card-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.card-subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.start-button {
+  width: 100%;
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.start-button:hover:not(:disabled) {
+  background-color: var(--button-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.start-button:active {
+  transform: translateY(0);
+}
+
+.start-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .App-link {
@@ -100,5 +178,30 @@
     right: 10px;
     padding: 8px 16px;
     font-size: 12px;
+  }
+
+  .App-header {
+    padding: 16px;
+    font-size: calc(8px + 2vmin);
+  }
+
+  .progress-card {
+    padding: 24px 20px;
+    margin: 0 16px;
+    max-width: none;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+
+  .card-subtitle {
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+
+  .start-button {
+    font-size: 14px;
+    padding: 10px 20px;
   }
 }
